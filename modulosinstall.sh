@@ -17,7 +17,7 @@ wget -O sincronizar.py "https://raw.githubusercontent.com/DuiBR/modulosTeste/mai
 wget -O verificador.py "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/verificador.py"
 
 # Aplica permissões
-chmod +x sshplus.sh dragonmodule jq verificador.py modulo.py delete.py sincronizar.py
+chmod +x sshplus.sh dragonmodule jq verificador.py delete.py sincronizar.py
 
 
 # Executa o verificador
