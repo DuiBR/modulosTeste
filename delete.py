@@ -17,11 +17,11 @@ with open(nome_arquivo, 'r') as arquivo:
         colunas = linha.split()
         if len(colunas) >= 2:
             # Usando sshpro.sh para remoção V2ray
-            os.system("/root/sshpro.sh v2raydel " + colunas[1] + " " + colunas[0])
+            os.system("/root/sshplus.sh v2raydel " + colunas[1] + " " + colunas[0])
         else:
             linha = linha.replace(' ', '')
             # Usando sshpro.sh para remoção SSH
-            os.system("/root/sshpro.sh removessh " + linha)
+            os.system("/root/sshplus.sh removessh " + linha)
     arquivo.close()
     os.system("rm " + nome_arquivo)
     

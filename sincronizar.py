@@ -17,11 +17,11 @@ with open(nome_arquivo, 'r') as arquivo:
     for linha in linhas:
         colunas = linha.split()
         if len(colunas) >= 5:
-            # Usando sshpro.sh para adicionar com V2ray
-            os.system("/root/sshpro.sh v2rayadd " + colunas[4] + " " + colunas[0] + " " + colunas[1] + " " + colunas[2] + " " + colunas[3])
+            # Usando sshplus.sh para adicionar com V2ray
+            os.system("/root/sshplus.sh v2rayadd " + colunas[4] + " " + colunas[0] + " " + colunas[1] + " " + colunas[2] + " " + colunas[3])
         else:
-            # Usando sshpro.sh para adicionar apenas SSH
-            os.system("/root/sshpro.sh createssh " + colunas[0] + " " + colunas[1] + " " + colunas[2] + " " + colunas[3])
+            # Usando sshplus.sh para adicionar apenas SSH
+            os.system("/root/sshplus.sh createssh " + colunas[0] + " " + colunas[1] + " " + colunas[2] + " " + colunas[3])
     arquivo.close()
     os.system("rm " + nome_arquivo)
     
