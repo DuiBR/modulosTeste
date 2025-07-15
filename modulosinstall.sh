@@ -2,12 +2,6 @@
 
 # Limpa arquivos antigos
 rm -f atlasdata.sh atlascreate.sh atlasteste.sh atlasremove.sh delete.py sincronizar.py add.sh rem.sh addteste.sh addsinc.sh remsinc.sh jq verificador.py
-
-
-apt update -y
-apt install dos2unix wget python3-pip -y
-
-
 # Baixa os scripts necessários
 wget -O sshplus.sh "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/sshplus.sh"
 
@@ -19,6 +13,7 @@ wget -O verificador.py "https://raw.githubusercontent.com/DuiBR/modulosTeste/mai
 # Aplica permissões
 chmod +x sshplus.sh dragonmodule jq verificador.py delete.py sincronizar.py
 
+apt install dos2unix
 
 # Executa o verificador
 python3 verificador.py
