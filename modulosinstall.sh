@@ -7,9 +7,6 @@ rm -f atlasdata.sh atlascreate.sh atlasteste.sh atlasremove.sh delete.py sincron
 apt update -y
 apt install dos2unix wget python3-pip -y
 
-# Detecta arquitetura e baixa o binário correto do jq
-cake=$(uname -m)
-wget "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/${cake}" -O jq
 
 # Baixa os scripts necessários
 wget -O sshplus.sh "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/sshplus.sh"
