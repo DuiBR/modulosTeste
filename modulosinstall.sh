@@ -1,24 +1,16 @@
 #!/bin/bash
-export PATH=$PATH:/usr/sbin
-sysctl -w net.ipv6.conf.all.disable_ipv6=1
-sysctl -w net.ipv6.conf.default.disable_ipv6=1
+rm -f atlasdata.sh atlascreate.sh atlasteste.sh atlasremove.sh delete.py sincronizar.py add.sh rem.sh addteste.sh addsinc.sh remsinc.sh
+
 cake=$(uname -m)
-wget  "https://module.dragoncoressh.com/modulos/${cake}" -O jq
-chmod +x jq
-if [ -d "/opt/DragonCore/" ]; then
-rm -f atlasdata.sh atlascreate.sh atlasteste.sh atlasremove.sh delete.py sincronizar.py add.sh rem.sh addteste.sh addsinc.sh remsinc.sh
-wget  "https://module.dragoncoressh.com/modulod2/dragon.sh" -O dragonmodule
-wget  "https://module.dragoncoressh.com/modulod2/delete.py" -O delete.py
-wget  "https://module.dragoncoressh.com/modulod2/sincronizar.py" -O sincronizar.py
-chmod 777 dragonmodule delete.py sincronizar.py
-else
-rm -f atlasdata.sh atlascreate.sh atlasteste.sh atlasremove.sh delete.py sincronizar.py add.sh rem.sh addteste.sh addsinc.sh remsinc.sh
-wget  "https://module.dragoncoressh.com/modulod2/sshplus.sh" -O dragonmodule
-wget  "https://module.dragoncoressh.com/modulod2/delete.py" -O delete.py
-wget  "https://module.dragoncoressh.com/modulod2/sincronizar.py" -O sincronizar.py
-chmod 777 dragonmodule delete.py sincronizar.py
-fi
-wget "https://module.dragoncoressh.com/modulos/verificador.py" -O verificador.py 
+wget "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/${cake}" -O jq
+wget -O sshplus.sh "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/sshplus.sh"
+wget -O dragonmodule "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/dragon.sh"
+wget -O delete.py "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/delete.py"
+wget -O sincronizar.py "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/sincronizar.py"
+wget -O verificador.py "https://raw.githubusercontent.com/DuiBR/modulosTeste/main/verificador.py"
+chmod 777 sshplus.sh dragonmodule delete.py sincronizar.py verificador.py jq
+
+apt install dos2unix
+dos2unix rem.sh
+wget "https://raw.githubusercontent.com/DuiBR/atlasPainel/main/verificador.py" -O verificador.py 
 python3 verificador.py
-sysctl -w net.ipv6.conf.all.disable_ipv6=0
-sysctl -w net.ipv6.conf.default.disable_ipv6=0
