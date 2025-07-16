@@ -16,22 +16,28 @@ createssh(){
     password=$2
     dias=$3
     sshlimiter=$4
+    
+    
     removessh $username
+    
     dias=$(($dias+1))
     final=$(date "+%Y-%m-%d" -d "+$dias days")
-    gui=$(date "+%d/%m/%Y" -d "+$dias days")
     pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
     useradd -e $final -M -s /bin/false -p $pass $username
+    
     echo "$password" > /etc/SSHPlus/senha/$username
     echo "$username $sshlimiter" >> /root/usuarios.db
-    PIDS=$(ps aux | grep "sleep" | grep "$username" | grep -v "$current_pid" | awk '{print $2}')
+    
+    finaldate=$(date "+%Y-%m-%d" -d "+$dias days")
+    chage -E $finaldate $username
+    
+    # Limpa scripts de teste
+    PIDS=$(ps aux | grep "sleep" | grep "$username" | awk '{print $2}')
     if [ -n "$PIDS" ]; then
         kill -9 $PIDS
-        echo "Killed sleep process with PID: $PIDS"
         rm /etc/DragonPanel/*_${username}.sh
-    else
-        echo "No sleep process found for 'teste'."
     fi
+    
     echo "CRIADOCOMSUCESSO"
 }
 
